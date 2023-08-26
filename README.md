@@ -18,6 +18,15 @@
 - refactor class and file name src/HubertinioSyliusExamplePlugin.php
 - refactor class and file name DependencyInjection/HubertinioSyliusExampleExtension.php
 
+## How to add routing?
+
+Insert into `config/routes.yaml` this content:
+
+```
+hubertinio_sylius_apaczka_plugin:
+    resource: "@HubertinioSyliusApaczkaPlugin/config/routing.yml"
+```
+
 ## Documentation
 
 For a comprehensive guide on Sylius Plugins development please go to Sylius documentation,
