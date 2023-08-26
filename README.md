@@ -18,6 +18,14 @@
 - refactor class and file name src/HubertinioSyliusExamplePlugin.php
 - refactor class and file name DependencyInjection/HubertinioSyliusExampleExtension.php
 
+## Register plugin
+
+Insert into `config/bundles.php` array that line:
+
+```
+Hubertinio\SyliusApaczkaPlugin\HubertinioSyliusApaczkaPlugin::class => ['all' => true],
+```
+
 ## How to add routing?
 
 Insert into `config/routes.yaml` this content:
