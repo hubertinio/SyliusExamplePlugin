@@ -8,6 +8,16 @@
 
 <p align="center">Skeleton for starting Sylius plugins.</p>
 
+## What to rename?
+
+- find and replace "Hubertinio\\SyliusExamplePlugin" into "Hubertinio\\SyliusApaczkaPlugin"
+- find and replace "Hubertinio\SyliusExamplePlugin" into "Hubertinio\SyliusApaczkaPlugin"
+- find and replace with case sensitive "HubertinioSyliusExamplePlugin" into "HubertinioSyliusApaczkaPlugin"
+- find and replace with case sensitive "hubertiniosyliusexampleplugin" into "hubertiniosyliusapaczkaplugin"
+- find and replace "hubertinio_sylius_example" into "hubertinio_sylius_apaczka"
+- refactor class and file name src/HubertinioSyliusExamplePlugin.php
+- refactor class and file name DependencyInjection/HubertinioSyliusExampleExtension.php
+
 ## Documentation
 
 For a comprehensive guide on Sylius Plugins development please go to Sylius documentation,
