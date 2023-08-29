@@ -8,6 +8,17 @@
 
 <p align="center">Skeleton for starting Sylius plugins.</p>
 
+## Init
+
+```
+git clone git@github.com:hubertinio/SyliusExamplePlugin.git sylius-unicorn-plugin
+cd sylius-unicorn-plugin
+git remote remove origin
+; create repo
+git remote add origin git@github.com:hubertinio/SyliusUnicornPlugin.git
+git push -u origin 1.12
+```
+
 ## What to rename?
 
 - find and replace "Hubertinio\\SyliusExamplePlugin" into "Hubertinio\\SyliusApaczkaPlugin"
