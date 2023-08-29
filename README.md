@@ -22,7 +22,7 @@ git push -u origin 1.12
 ## What to rename?
 
 - name in the composer.json
-- find and replace "Hubertinio\\SyliusExamplePlugin" into "Hubertinio\\SyliusApaczkaPlugin"
+- find and replace "Hubertinio\\\\SyliusExamplePlugin" into "Hubertinio\\\\SyliusApaczkaPlugin"
 - find and replace "Hubertinio\SyliusExamplePlugin" into "Hubertinio\SyliusApaczkaPlugin"
 - find and replace with case sensitive "HubertinioSyliusExamplePlugin" into "HubertinioSyliusApaczkaPlugin"
 - find and replace with case sensitive "hubertiniosyliusexampleplugin" into "hubertiniosyliusapaczkaplugin"
