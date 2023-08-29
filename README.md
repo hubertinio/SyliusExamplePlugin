@@ -21,6 +21,7 @@ git push -u origin 1.12
 
 ## What to rename?
 
+- name in the composer.json
 - find and replace "Hubertinio\\SyliusExamplePlugin" into "Hubertinio\\SyliusApaczkaPlugin"
 - find and replace "Hubertinio\SyliusExamplePlugin" into "Hubertinio\SyliusApaczkaPlugin"
 - find and replace with case sensitive "HubertinioSyliusExamplePlugin" into "HubertinioSyliusApaczkaPlugin"
@@ -28,6 +29,27 @@ git push -u origin 1.12
 - find and replace "hubertinio_sylius_example" into "hubertinio_sylius_apaczka"
 - refactor class and file name src/HubertinioSyliusExamplePlugin.php
 - refactor class and file name DependencyInjection/HubertinioSyliusExampleExtension.php
+
+
+## Composer install
+
+Set private repository.
+
+```
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:hubertinio/SyliusUnicornPlugin.git"
+        }
+    ],
+```
+
+Install.
+
+```
+composer require hubertinio/sylius-cachbill-plugin:1.12.x-dev
+```
+
 
 ## Register plugin
 
