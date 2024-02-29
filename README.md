@@ -22,11 +22,11 @@ git push -u origin 1.12
 ## What to rename?
 
 - name in the composer.json
-- find and replace "Hubertinio\\\\SyliusExamplePlugin" into "Hubertinio\\\\SyliusApaczkaPlugin"
-- find and replace "Hubertinio\SyliusExamplePlugin" into "Hubertinio\SyliusApaczkaPlugin"
-- find and replace with case sensitive "HubertinioSyliusExamplePlugin" into "HubertinioSyliusApaczkaPlugin"
-- find and replace with case sensitive "hubertiniosyliusexampleplugin" into "hubertiniosyliusapaczkaplugin"
-- find and replace "hubertinio_sylius_example" into "hubertinio_sylius_apaczka"
+- find and replace "Hubertinio\\\\SyliusExamplePlugin" into "Hubertinio\\\\SyliusUnicornPlugin"
+- find and replace "Hubertinio\SyliusExamplePlugin" into "Hubertinio\SyliusUnicornPlugin"
+- find and replace with case-sensitive "HubertinioSyliusExamplePlugin" into "HubertinioSyliusUnicornPlugin"
+- find and replace with case-sensitive "hubertiniosyliusexampleplugin" into "hubertiniosyliusunicornplugin"
+- find and replace "hubertinio_sylius_example" into "hubertinio_sylius_unicorn"
 - refactor class and file name src/HubertinioSyliusExamplePlugin.php
 - refactor class and file name DependencyInjection/HubertinioSyliusExampleExtension.php
 
@@ -47,7 +47,7 @@ Set private repository.
 Install.
 
 ```
-composer require hubertinio/sylius-cachbill-plugin:1.12.x-dev
+composer require hubertinio/sylius-unicorn-plugin:1.12.x-dev
 ```
 
 
@@ -64,7 +64,7 @@ Hubertinio\SyliusApaczkaPlugin\HubertinioSyliusApaczkaPlugin::class => ['all' =>
 Insert into `config/routes.yaml` this content:
 
 ```
-hubertinio_sylius_apaczka_plugin:
+hubertinio_sylius_unicorn_plugin:
     resource: "@HubertinioSyliusApaczkaPlugin/config/routing.yml"
 ```
 
