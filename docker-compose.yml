@@ -37,6 +37,14 @@ services:
             MAILER_DSN: smtp://mailhog:1025
             NPM_CONFIG_PATH: /var/www/.npm
 
+    node:
+        image: node:18-alpine
+        working_dir: /app/tests/Application
+        volumes:
+            - ./:/app
+#        command: yarn install --pure-lockfile
+        command: yarn watch
+
     mysql:
         image: mysql:8.0
         platform: linux/amd64

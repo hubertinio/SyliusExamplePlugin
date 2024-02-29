@@ -2,14 +2,17 @@
 DOCKER_COMP = docker-compose
 
 PHP_SERVICE = app
+NODE_SERVICE = node
 DB_SERVICE = mysql
 
 # Make Makefile available for users without Docker setup
 ifeq ($(APP_DOCKER), 0)
 	PHP_CONT =
 	DB_CONT =
+	NODE_CONT =
 else
 	PHP_CONT = $(DOCKER_COMP) exec $(PHP_SERVICE)
+	NODE_CONT = $(DOCKER_COMP) exec $(NODE_SERVICE)
 	DB_CONT = $(DOCKER_COMP) exec $(DB_SERVICE)
 endif
 
@@ -17,7 +20,7 @@ endif
 PHP = $(PHP_CONT) php
 COMPOSER = $(PHP_CONT) composer
 SYMFONY = $(PHP_CONT) tests/Application/bin/console
-NPM = $(PHP_CONT) npm
+NPM = $(NODE_CONT) npm
 
 # Executables: vendors
 PHPUNIT = $(PHP) tests/Application/bin/phpunit
@@ -128,8 +131,8 @@ install-backend: ## Install backend
 	$(PHP_CONT) tests/Application/bin/console sylius:fixtures:load default --no-interaction
 
 install-frontend: ## Install frontend
-	$(PHP_CONT) sh -c "cd tests/Application && yarn install --pure-lockfile"
-	$(PHP_CONT) sh -c "cd tests/Application && GULP_ENV=prod yarn build"
+	$(NODE_CONT) yarn install --pure-lockfile
+	$(NODE_CONT) GULP_ENV=prod yarn build
 
 install: install-backend install-frontend
 
