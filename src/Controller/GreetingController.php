@@ -25,7 +25,7 @@ final class GreetingController extends AbstractController
     private function getGreeting(?string $name): string
     {
         return match ($name) {
-            'Lionel Richie' => 'Hello, is it me you\'re looking for?',
+            'Lionel-Richie' => 'Hello, is it me you\'re looking for?',
             null => 'Hello!',
             default => sprintf('Hello, %s!', $name),
         };

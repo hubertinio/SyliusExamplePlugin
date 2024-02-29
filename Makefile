@@ -23,9 +23,9 @@ SYMFONY = $(PHP_CONT) tests/Application/bin/console
 NPM = $(NODE_CONT) npm
 
 # Executables: vendors
-PHPUNIT = $(PHP) tests/Application/bin/phpunit
-PHPSPEC = $(PHP) tests/Application/bin/phpspec
-ECS     = $(PHP) tests/Application/bin/ecs
+PHPUNIT = $(PHP) vendor/bin/phpunit
+PHPSPEC = $(PHP) vendor/bin/phpspec
+ECS     = $(PHP) vendor/bin/ecs
 
 # Misc
 .DEFAULT_GOAL := help
@@ -106,9 +106,8 @@ migrations-status:
 ##
 
 front-assets: ## Install all assets
-	$(SYMFONY) assets:install --no-debug
+	$(PHP_CONT) rm -rf tests/Application/public/bundles
 	$(SYMFONY) sylius:install:assets --no-debug
-	$(SYMFONY) sylius:theme:assets:install --no-debug
 
 front-watch: ## Build dev and watch project
 	$(PHP_CONT) rm -rf public/build/*
@@ -127,8 +126,8 @@ front-lint: ## Run lint project
 ##
 
 install-backend: ## Install backend
-	$(PHP_CONT) tests/Application/bin/console sylius:install --no-interaction
-	$(PHP_CONT) tests/Application/bin/console sylius:fixtures:load default --no-interaction
+	$(SYMFONY) sylius:install --no-interaction
+	$(SYMFONY) sylius:fixtures:load default --no-interaction
 
 install-frontend: ## Install frontend
 	$(NODE_CONT) yarn install --pure-lockfile
