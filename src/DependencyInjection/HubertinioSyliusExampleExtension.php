@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hubertinio\SyliusCashBillPlugin\DependencyInjection;
+namespace Hubertinio\SyliusExamplePlugin\DependencyInjection;
 
 use Sylius\Bundle\CoreBundle\DependencyInjection\PrependDoctrineMigrationsTrait;
 use Sylius\Bundle\ResourceBundle\DependencyInjection\Extension\AbstractResourceExtension;
@@ -21,23 +21,23 @@ final class HubertinioSyliusExampleExtension extends AbstractResourceExtension i
         $configuration = new Configuration();
         $this->processConfiguration($configuration, $configs);
 
-        $loader = new PhpFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new PhpFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
         $loader->load('services.php');
     }
 
     public function prepend(ContainerBuilder $container): void
     {
-//        $this->prependDoctrineMigrations($container);
+        $this->prependDoctrineMigrations($container);
     }
 
     protected function getMigrationsNamespace(): string
     {
-        return 'Hubertinio\SyliusCashBillPlugin\Migrations';
+        return 'DoctrineMigrations';
     }
 
     protected function getMigrationsDirectory(): string
     {
-        return '@HubertinioSyliusCashBillPlugin/migrations';
+        return '@HubertinioSyliusExamplePlugin/migrations';
     }
 
     protected function getNamespacesOfMigrationsExecutedBefore(): array

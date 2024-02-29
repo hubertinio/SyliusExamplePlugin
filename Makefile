@@ -2,7 +2,7 @@
 DOCKER_COMP = docker-compose
 
 PHP_SERVICE = app
-DB_SERVICE = db
+DB_SERVICE = mysql
 
 # Make Makefile available for users without Docker setup
 ifeq ($(APP_DOCKER), 0)
@@ -20,9 +20,9 @@ SYMFONY = $(PHP_CONT) tests/Application/bin/console
 NPM = $(PHP_CONT) npm
 
 # Executables: vendors
-PHPUNIT = $(PHP_TEST) tests/Application/bin/phpunit
-PHPSPEC = $(PHP_TEST) tests/Application/bin/phpspec
-ECS     = $(PHP_TEST) tests/Application/bin/ecs
+PHPUNIT = $(PHP) tests/Application/bin/phpunit
+PHPSPEC = $(PHP) tests/Application/bin/phpspec
+ECS     = $(PHP) tests/Application/bin/ecs
 
 # Misc
 .DEFAULT_GOAL := help
@@ -124,36 +124,32 @@ front-lint: ## Run lint project
 ##
 
 install-backend: ## Install backend
-	tests/Application/bin/console sylius:install --no-interaction
-	tests/Application/bin/console sylius:fixtures:load default --no-interaction
+	$(PHP_CONT) tests/Application/bin/console sylius:install --no-interaction
+	$(PHP_CONT) tests/Application/bin/console sylius:fixtures:load default --no-interaction
 
 install-frontend: ## Install frontend
-	(cd tests/Application && yarn install --pure-lockfile)
-	(cd tests/Application && GULP_ENV=prod yarn build)
+	$(PHP_CONT) sh -c "cd tests/Application && yarn install --pure-lockfile"
+	$(PHP_CONT) sh -c "cd tests/Application && GULP_ENV=prod yarn build"
 
-install: composer-install install-backend install-frontend
+install: install-backend install-frontend
 
-
-phpunit:
+phpunit: ## Run phpunit
 	vendor/bin/phpunit
 
-phpspec:
+phpspec: ## Run phpspec
 	vendor/bin/phpspec run --ansi --no-interaction -f dot
 
-phpstan:
+phpstan: ## Run phpstan
 	vendor/bin/phpstan analyse
 
-psalm:
+psalm: ## Run psalm
 	vendor/bin/psalm
 
-behat-js:
+behat-js: ## Run behat-js
 	APP_ENV=test vendor/bin/behat --colors --strict --no-interaction -vvv -f progress
 
-
-behat:
+behat: ## Run behat
 	APP_ENV=test vendor/bin/behat --colors --strict --no-interaction -vvv -f progress
-
-init: install backend frontend
 
 ci: init phpstan psalm phpunit phpspec behat
 
