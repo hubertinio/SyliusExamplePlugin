@@ -20,6 +20,7 @@ endif
 PHP = $(PHP_CONT) php
 COMPOSER = $(PHP_CONT) composer
 SYMFONY = $(PHP_CONT) tests/Application/bin/console
+SYMFONY_CLI = $(PHP_CONT) symfony
 NPM = $(NODE_CONT) npm
 
 # Executables: vendors
@@ -147,14 +148,11 @@ phpstan: ## Run phpstan
 psalm: ## Run psalm
 	vendor/bin/psalm
 
-behat-js: ## Run behat-js
-	APP_ENV=test vendor/bin/behat --colors --strict --no-interaction -vvv -f progress
-
 behat: ## Run behat
 	APP_ENV=test vendor/bin/behat --colors --strict --no-interaction -vvv -f progress
 
-ci: init phpstan psalm phpunit phpspec behat
+ci: install phpstan psalm phpunit phpspec behat
 
-integration: init phpunit behat
+integration: install phpunit behat
 
 static: install phpspec phpstan psalm

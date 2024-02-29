@@ -19,6 +19,9 @@ RUN apt-get remove -y nodejs; \
     apt-get autoremove -y; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
+RUN wget https://get.symfony.com/cli/installer -O - | bash; \
+    mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
+
 #COPY .ssh/ /root/.ssh/
 #RUN chown -R root:root /root/.ssh; \
 #    chmod 0700 /root/.ssh; \
