@@ -10,11 +10,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
     $services->defaults()->public()->autowire()->autoconfigure();
 
-//    $services->set($servicesIdPrefix  . '.controller', StatusChangeNotificationController::class)
-//        ->args([
-//            true,
-//            param('kernel.logs_dir'),
-//            service('filesystem'),
-//            service($servicesIdPrefix . 'bridge'),
-//        ]);
+    $services->load('Hubertinio\\SyliusExamplePlugin\\Controller\\', __DIR__ . '/../src/Controller');
 };

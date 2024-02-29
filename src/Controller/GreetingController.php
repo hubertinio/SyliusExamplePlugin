@@ -6,7 +6,10 @@ namespace Hubertinio\SyliusExamplePlugin\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Attribute\AsController;
+use Symfony\Component\Routing\Attribute\Route;
 
+#[AsController]
 final class GreetingController extends AbstractController
 {
     public function staticallyGreetAction(?string $name): Response
@@ -21,13 +24,10 @@ final class GreetingController extends AbstractController
 
     private function getGreeting(?string $name): string
     {
-        switch ($name) {
-            case null:
-                return 'Hello!';
-            case 'Lionel Richie':
-                return 'Hello, is it me you\'re looking for?';
-            default:
-                return sprintf('Hello, %s!', $name);
-        }
+        return match ($name) {
+            'Lionel Richie' => 'Hello, is it me you\'re looking for?',
+            null => 'Hello!',
+            default => sprintf('Hello, %s!', $name),
+        };
     }
 }

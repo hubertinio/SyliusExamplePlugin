@@ -4,6 +4,6 @@ hubertinio_sylius_example_shop:
     requirements:
         _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
 
-#hubertinio_sylius_example_admin:
-#    resource: "@HubertinioSyliusExamplePlugin/config/admin_routing.yaml"
-#    prefix: /admin
+hubertinio_sylius_example_admin:
+    resource: "@HubertinioSyliusExamplePlugin/config/admin_routing.yaml"
+    prefix: /admin
