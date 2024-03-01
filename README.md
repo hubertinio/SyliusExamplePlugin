@@ -56,16 +56,16 @@ composer require hubertinio/sylius-unicorn-plugin:1.12.x-dev
 Insert into `config/bundles.php` array that line:
 
 ```
-Hubertinio\SyliusApaczkaPlugin\HubertinioSyliusApaczkaPlugin::class => ['all' => true],
+Hubertinio\SyliusUnicornPlugin\HubertinioSyliusUnicornPlugin::class => ['all' => true],
 ```
 
 ## How to add routing?
 
-Insert into `config/routes.yaml` this content:
+Insert into `tests/Application/config/routes.yaml` this content:
 
 ```
-hubertinio_sylius_unicorn_plugin:
-    resource: "@HubertinioSyliusApaczkaPlugin/config/routing.yml"
+hubertinio_sylius_example_plugin:
+    resource: "@HubertinioSyliusExamplelugin/config/routing.yml"
 ```
 
 ## Documentation
@@ -75,28 +75,11 @@ there you will find the <a href="https://docs.sylius.com/en/latest/plugin-develo
 
 ## Quickstart Installation
 
-### Traditional
-
-1. Run `composer create-project sylius/plugin-skeleton ProjectName`.
-
-2. From the plugin skeleton root directory, run the following commands:
-
-    ```bash
-    $ (cd tests/Application && yarn install)
-    $ (cd tests/Application && yarn build)
-    $ (cd tests/Application && APP_ENV=test bin/console assets:install public)
-    
-    $ (cd tests/Application && APP_ENV=test bin/console doctrine:database:create)
-    $ (cd tests/Application && APP_ENV=test bin/console doctrine:schema:create)
-    ```
-
-To be able to set up a plugin's database, remember to configure you database credentials in `tests/Application/.env` and `tests/Application/.env.test`.
-
 ### Docker
 
-1. Execute `docker compose up -d`
+1. Execute `make build-containers` and `make start-containers`
 
-2. Initialize plugin `docker compose exec app make init`
+2. Initialize plugin `make install`
 
 3. See your browser `open localhost`
 
@@ -163,20 +146,4 @@ To be able to set up a plugin's database, remember to configure you database cre
   
     ```bash
     vendor/bin/ecs check
-    ```
-
-### Opening Sylius with your plugin
-
-- Using `test` environment:
-
-    ```bash
-    (cd tests/Application && APP_ENV=test bin/console sylius:fixtures:load)
-    (cd tests/Application && APP_ENV=test bin/console server:run -d public)
-    ```
-    
-- Using `dev` environment:
-
-    ```bash
-    (cd tests/Application && APP_ENV=dev bin/console sylius:fixtures:load)
-    (cd tests/Application && APP_ENV=dev bin/console server:run -d public)
     ```
