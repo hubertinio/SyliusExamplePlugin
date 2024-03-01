@@ -87,7 +87,7 @@ there you will find the <a href="https://docs.sylius.com/en/latest/plugin-develo
 
 2. Initialize plugin `make install`
 
-3. See your browser `open localhost`
+3. See your [localhost](http://localhost/en_US/static-welcome/SyliusMaster)
 
 ## Usage
 
