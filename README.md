@@ -6,7 +6,14 @@
 
 <h1 align="center">Better Plugin Skeleton</h1>
 
-<p align="center">Skeleton for starting Sylius plugins.</p>
+<p align="center">Skeleton for starting Sylius plugins in a few minutes with docker.</p>
+
+## What was updated?
+
+* docker has the same versions as github actions
+* paths are correct and works without hasitate
+* services.php for services.yaml
+* installation updated and closed in Makefile commands
 
 ## Init
 
