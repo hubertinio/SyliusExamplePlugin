@@ -77,7 +77,7 @@ composer require vendor/sylius-unicorn-plugin:1.12.x-dev
 Insert into `tests/Application/config/bundles.php` array that line:
 
 ```
-Hubertinio\SyliusUnicornPlugin\HubertinioSyliusUnicornPlugin::class => ['all' => true],
+Vendor\SyliusUnicornPlugin\VendorSyliusUnicornPlugin::class => ['all' => true],
 ```
 
 ## How to add routing?
