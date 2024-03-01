@@ -10,7 +10,7 @@
 
 ## What was updated?
 
-* docker has the same versions as github actions
+* docker has the same versions as github actions (php 8.1, mysql 8.0, node 18.x)
 * paths are correct and works without hasitate
 * services.php for services.yaml
 * installation updated and closed in Makefile commands
