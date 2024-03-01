@@ -36,8 +36,23 @@ Let's assume that the new plugin is Vendor\SyliusUnicornPlugin
 - refactor class and file name `src/HubertinioSyliusExamplePlugin.php` into `VendorSyliusUnicornPlugin.php` 
 - refactor class and file name `src/DependencyInjection/HubertinioSyliusExampleExtension.php` into `src/DependencyInjection/VendorSyliusUnicornExtension.php`
 
+## Quickstart Installation
+
+### Docker
+
+1. Execute `make build-containers` and `make start-containers`
+
+2. Initialize everything `make install`
+
+3. See your [localhost](http://localhost/en_US/static-welcome/SyliusMaster)
+
+### Traditional way
+
+Don't tested yet.
 
 ## Composer install
+
+For existing projects.
 
 Set private repository.
 
@@ -78,16 +93,6 @@ vendor_sylius_unicorn_plugin:
 
 For a comprehensive guide on Sylius Plugins development please go to Sylius documentation,
 there you will find the <a href="https://docs.sylius.com/en/latest/plugin-development-guide/index.html">Plugin Development Guide</a>, that is full of examples.
-
-## Quickstart Installation
-
-### Docker
-
-1. Execute `make build-containers` and `make start-containers`
-
-2. Initialize plugin `make install`
-
-3. See your [localhost](http://localhost/en_US/static-welcome/SyliusMaster)
 
 ## Usage
 
