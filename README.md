@@ -18,7 +18,7 @@ git clone git@github.com:hubertinio/SyliusExamplePlugin.git SyliusUnicornPlugin
 
 Let's assume that the new plugin is Vendor\SyliusUnicornPlugin
 
-- update name in the composer.json into `vendor\vendor-sylius-unicorn-plugin`
+- update name in the composer.json into `vendor\sylius-unicorn-plugin`
 - find and replace `Hubertinio\\SyliusExamplePlugin` into `Vendor\\SyliusUnicornPlugin`
 - find and replace `Hubertinio\SyliusExamplePlugin` into `Vendor\SyliusUnicornPlugin`
 - find and replace with case-sensitive `HubertinioSyliusExamplePlugin` into `VendorSyliusUnicornPlugin`
