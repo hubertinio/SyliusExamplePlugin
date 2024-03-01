@@ -8,6 +8,8 @@
 
 <p align="center">Skeleton for starting Sylius plugins in a few minutes with docker.</p>
 
+[Source repo](https://github.com/Sylius/PluginSkeleton/)
+
 ## What was updated?
 
 * docker has the same versions as github actions (php 8.1, mysql 8.0, node 18.x)
