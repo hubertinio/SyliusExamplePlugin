@@ -104,6 +104,10 @@ migrate:
 migrations-status:
 	$(SYMFONY) doctrine:migrations:status
 
+migrations-diff:
+	$(SYMFONY) doctrine:migrations:diff --em=default --namespace=Hubertinio\\SyliusExamplePlugin\\Migrations
+
+
 ##
 ## —— Front 🎨 ————————————————————————————————————————————————————————————————
 ##
